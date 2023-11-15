@@ -2,7 +2,6 @@ import express from "express";
 import "express-async-errors";
 import morgan from "morgan";
 import "dotenv/config";
-import Joi from "joi";
 import {
   getAll,
   getById,
@@ -26,11 +25,6 @@ app.post("/api/planets", create);
 app.put("/api/planets/:id", updateById);
 
 app.delete("/api/planets/:id", deleteById);
-
-const planetScheme = Joi.object({
-  id: Joi.number().integer().required(),
-  name: Joi.string().required(),
-});
 
 app.listen(port, () => {
   console.log(`Se inicializa el puerto: http://localhost:${port}/`);
