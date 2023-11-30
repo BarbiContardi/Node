@@ -42,7 +42,6 @@ const create = async (req: Request, res: Response) => {
   if (validateNewPlanet.error) {
     return res.status(400).json({ msg: validateNewPlanet.error.details[0].message });
   } else {
-    // planets = [...planets, newPlanet];
     res.status(201).json({ msg: "el pleneta se creo con exito" });
   }
 };
