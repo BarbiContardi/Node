@@ -11,7 +11,7 @@ import {
   createImage,
 } from "./controllers/planets.js";
 import multer from "multer";
-import { logIn } from "./controllers/users.js";
+import { logIn, signUp } from "./controllers/users.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -42,6 +42,7 @@ app.delete("/api/planets/:id", deleteById);
 app.post("/api/planets/:id/image", upload.single("image"), createImage);
 
 app.post("/api/users/login", logIn);
+app.post("/api/users/signup", signUp);
 
 app.listen(port, () => {
   console.log(`Se inicializa el puerto: http://localhost:${port}/`);
